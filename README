@@ -1,4 +1,4 @@
-											DECENTRALIZED VOTING SYSTEM
+                                                                                        DECENTRALIZED VOTING SYSTEM
 
 DESCRIPTION
 	Current voting systems like ballot box voting or electronic voting suffer from various security threats such as DDoS attacks, polling booth capturing, vote alteration and manipulation, malware attacks, etc, and also require huge amounts of paperwork, human resources, and time. This creates a sense of distrust among existing systems.
@@ -12,6 +12,9 @@ INSTALL
 	make dvsClient dvsNode -j$(nproc)
 	openssl generate rsa private and public key or use given
 	Install the necessary third-party libs
+	Use this to format
+	find decentralized_voting_system/ -iname *.hpp | xargs clang-format -i
+	
 WORKING
 	Project contains two main executables dvsClient for client side and dvsNode for server side. The block in the blockchain contains (unique id hash ,vote ,timestamp ,public key hash). Every hash here means sha256 ,uniqueid hash is generated using > your gov id hash + priv key hash =total hash ,unique id hash prevent voting from same id again and gives privacy. Public key hash acts as a EVM identity which is assumed to be stored first which is fixed can't be changed. Block is then encrypted using private key then hex coded then passed to all nodes with. On node side matches the pub key hash with stored one's first, if it contains then decrypted ,this proves the authenticity of the block and added to the chain the request to add block is forwarded to other nodes . Tracker here maintains in providing host port of the nodes connnected. The added block is written in ledger file ,and its hash added to the Merkle tree.
 	On connecting of new node genesis block is asked or if not a new node then Merkle root of other node is asked and majority occurrence is choosen, then ledger of that node is downloaded and used next.
@@ -28,4 +31,4 @@ ACKNOWLEDGMENT
 	Thanking for all cpp tutorials stackoverflow ,bug reports ,third party libs. And shoutout fellow frnds for believing in lazy author.
 
 LICENSE
-	GPL
+	GPLv3
