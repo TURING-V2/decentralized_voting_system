@@ -1,0 +1,31 @@
+											DECENTRALIZED VOTING SYSTEM
+
+DESCRIPTION
+	Current voting systems like ballot box voting or electronic voting suffer from various security threats such as DDoS attacks, polling booth capturing, vote alteration and manipulation, malware attacks, etc, and also require huge amounts of paperwork, human resources, and time. This creates a sense of distrust among existing systems.
+	The solution is using blockchain voting process can be made more secure, transparent, immutable, and reliable. Suppose you are an eligible voter who goes to polling booth and cast vote using EVM (Electronic Voting Machine). But since it’s a circuitry after all and if someone tampers with microchip, you may never know that did your vote reach to person for whom you voted or was diverted into another candidate’s account?
+	Since there’s no tracing back of your vote. But, if you use blockchain- it stores everything as a transaction that will be explained soon below; and hence gives you a receipt of your vote (in a form of a transaction ID) and you can use it to ensure that your vote has been counted securely.
+
+INSTALL
+	git clone >> 
+	mkdir build/ >> 
+	cmake .. -DPRECOMPILE=1 >>
+	make dvsClient dvsNode -j$(nproc)
+	openssl generate rsa private and public key or use given
+	Install the necessary third-party libs
+WORKING
+	Project contains two main executables dvsClient for client side and dvsNode for server side. The block in the blockchain contains (unique id hash ,vote ,timestamp ,public key hash). Every hash here means sha256 ,uniqueid hash is generated using > your gov id hash + priv key hash =total hash ,unique id hash prevent voting from same id again and gives privacy. Public key hash acts as a EVM identity which is assumed to be stored first which is fixed can't be changed. Block is then encrypted using private key then hex coded then passed to all nodes with. On node side matches the pub key hash with stored one's first, if it contains then decrypted ,this proves the authenticity of the block and added to the chain the request to add block is forwarded to other nodes . Tracker here maintains in providing host port of the nodes connnected. The added block is written in ledger file ,and its hash added to the Merkle tree.
+	On connecting of new node genesis block is asked or if not a new node then Merkle root of other node is asked and majority occurrence is choosen, then ledger of that node is downloaded and used next.
+
+WHAT'S NOT IMPLEMENTED YET
+	It's not made for casual app voting from home without pole booth cause , people in rural area still not familiar and voting can be affected or biased. Therefore voting on EVM is preferred under supervision ,this method only resolves the true count,authenticity that can't be altered as its decentralized and majority decides.
+	A simple Tracking system to keep track of node is to be implemented in the future, or u can try manually adding node address to the file.
+	No GUI as it is a simple POC project dont expect working without bugs.(too lazy:'>
+
+AUTHOR
+	me
+
+ACKNOWLEDGMENT
+	Thanking for all cpp tutorials stackoverflow ,bug reports ,third party libs. And shoutout fellow frnds for believing in lazy author.
+
+LICENSE
+	GPL
