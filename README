@@ -22,13 +22,7 @@ WORKING
 WHAT'S NOT IMPLEMENTED YET
 	It's not made for casual app voting from home without pole booth cause , people in rural area still not familiar and voting can be affected or biased. Therefore voting on EVM is preferred under supervision ,this method only resolves the true count,authenticity that can't be altered as its decentralized and majority decides.
 	A simple Tracking system to keep track of node is to be implemented in the future, or u can try manually adding node address to the file.
-	No GUI as it is a simple POC project dont expect working without bugs.(too lazy:'>
-
-AUTHOR
-	me
-
-ACKNOWLEDGMENT
-	Thanking for all cpp tutorials stackoverflow ,bug reports ,third party libs. And shoutout fellow frnds for believing in lazy author.
+	No GUI as it is a simple POC project dont expect working without bugs
 
 LICENSE
 	GPLv3
